@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body#edit-chat-page {
+  /* Font and Background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Simplified, common font stack */
+  background: #1a1e36; /* Darker, deep-blue background */
+  color: #f0f4f8; /* Light text color */
+
+  /* Layout */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* 2. Page Title */
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+
+  /* Gradient Text */
+  background: linear-gradient(90deg, #4c4cff, #9370db, #ff69b4); /* Simple purple-pink gradient */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; /* Makes the text use the background gradient */
+}
+
+/* 3. Edit Info Section */
+.edit-info {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.edit-info p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #c4c9d9;
+}
+
+.edit-info b {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* 4. Form Container */
+#edit-chat-form {
+  /* Appearance */
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px; /* Slightly less rounded */
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px); /* Lighter blur */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  /* Layout */
+  width: 100%;
+  max-width: 550px;
+}
+
+/* 5. Textarea */
+#edit-msg {
+  width: 100%;
+  min-height: 120px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid transparent; /* Start with transparent border */
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 1rem;
+  color: #e8e8e8;
+  font-family: inherit;
+  margin-bottom: 20px;
+  outline: none;
+  resize: vertical;
+  transition: all 0.3s ease;
+}
+
+#edit-msg::placeholder {
+  color: #a0a8b9;
+}
+
+#edit-msg:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #6a5acd; /* Focus color */
+  box-shadow: 0 0 10px rgba(106, 90, 205, 0.5);
+}
+
+/* 6. Submit Button */
+#edit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #6a5acd, #9370db); /* Button gradient */
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(106, 90, 205, 0.4);
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#edit-btn:hover {
+  background: linear-gradient(135deg, #7b68ee, #a88be8); /* Slightly lighter on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(106, 90, 205, 0.6);
+}
+
+#edit-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 15px rgba(106, 90, 205, 0.4);
+}
+
+/* 7. Responsive Design */
+@media (max-width: 600px) {
+  .page-title {
+    font-size: 2rem;
+  }
+
+  #edit-chat-form {
+    padding: 20px;
+  }
+
+  #edit-msg {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  #edit-btn {
+    padding: 12px;
+    font-size: 1rem;
+  }
+}

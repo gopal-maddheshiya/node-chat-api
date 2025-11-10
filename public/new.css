@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* Font and Dark Background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Simplified Font */
+  background: #1a1e36; /* Deep Blue */
+  color: #f0f4f8;
+  min-height: 100vh;
+  padding: 40px 20px;
+  
+  /* Centering */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 2. Page Title */
+.page-title {
+  font-size: 2.5rem; /* Slightly smaller */
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+
+  /* Gradient Text */
+  background: linear-gradient(90deg, #4c4cff, #9370db, #ff69b4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Title Underline - Simplified */
+.page-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #9370db;
+  border-radius: 2px;
+}
+
+/* 3. Form Container */
+#create-chat-form {
+  /* Appearance */
+  background: rgba(255, 255, 255, 0.08); /* Slightly lighter for contrast */
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  /* Layout */
+  width: 100%;
+  max-width: 550px;
+  position: relative;
+}
+
+/* Top Gradient Line - Simplified */
+#create-chat-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4c4cff, #ff69b4);
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+/* 4. Input Fields (Text/Textarea) */
+#input-from,
+#input-to,
+#input-msg {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 1rem;
+  color: #e8e8e8;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  margin-bottom: 18px; /* Consistent spacing */
+  outline: none;
+}
+
+#input-from::placeholder,
+#input-to::placeholder,
+#input-msg::placeholder {
+  color: #a0a8b9;
+}
+
+#input-from:focus,
+#input-to:focus,
+#input-msg:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #6a5acd; /* Focus color */
+  box-shadow: 0 0 10px rgba(106, 90, 205, 0.5);
+  transform: none; /* Removed translateY for simplicity */
+}
+
+#input-msg {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+/* 5. Submit Button */
+#create-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #6a5acd, #9370db);
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(106, 90, 205, 0.4);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 15px;
+}
+
+#create-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(106, 90, 205, 0.6);
+  background: linear-gradient(135deg, #7b68ee, #a88be8); /* Subtle hover effect */
+}
+
+#create-btn:active {
+  transform: translateY(0);
+}
+
+/* 6. Responsive Design */
+@media (max-width: 600px) {
+  .page-title {
+    font-size: 2rem;
+  }
+
+  #create-chat-form {
+    padding: 25px;
+  }
+
+  #input-from,
+  #input-to,
+  #input-msg {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  #create-btn {
+    padding: 14px;
+    font-size: 1rem;
+  }
+}

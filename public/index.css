@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* Font and Dark Background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #1a1e36; /* Deep Blue */
+  color: #f0f4f8;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+#all-chats-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 2. Page Title */
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px; /* Increased bottom margin */
+  position: relative;
+
+  /* Gradient Text */
+  background: linear-gradient(90deg, #4c4cff, #9370db, #ff69b4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Title Underline */
+.page-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #9370db;
+  border-radius: 2px;
+}
+
+/* 3. New Chat Button */
+#new-chat-form {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+#new-chat-btn {
+  background: linear-gradient(135deg, #6a5acd, #9370db);
+  color: white;
+  border: none;
+  padding: 14px 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(106, 90, 205, 0.4);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#new-chat-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(106, 90, 205, 0.7);
+}
+
+#new-chat-btn:active {
+  transform: translateY(-1px);
+}
+
+/* 4. Chat Container - **Improved Responsive Grid** */
+#chat-container {
+  /* This setting ensures that cards adjust based on screen size */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+  gap: 30px; /* Increased gap for better separation */
+}
+
+/* 5. Chat Box (Card) */
+.chat-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chat-box:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 35px rgba(106, 90, 205, 0.4);
+}
+
+/* 6. Chat From/To and Message - **Improved Spacing** */
+.chat-from,
+.chat-to {
+  font-size: 0.9rem;
+  color: #c4c9d9;
+  margin-bottom: 15px; /* Increased margin for better separation */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.chat-from i,
+.chat-to i {
+  color: #6a5acd;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.chat-message {
+  background: rgba(106, 90, 205, 0.1);
+  padding: 20px; /* Increased padding */
+  border-radius: 10px;
+  margin: 20px 0; /* Increased vertical margin */
+  border: 1px solid rgba(106, 90, 205, 0.2);
+}
+
+.message-text {
+  color: #e8e8e8;
+  font-size: 1rem;
+  line-height: 1.7; /* Increased line-height for readability */
+}
+
+/* 7. Chat Actions (Buttons) */
+.chat-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  margin-top: 20px; /* Added space above buttons */
+}
+
+.edit-btn,
+.delete-btn {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.edit-btn {
+  background: #60a5fa;
+  color: #1a1e36;
+}
+
+.delete-btn {
+  background: #f87171;
+  color: #1a1e36;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.edit-btn:active,
+.delete-btn:active {
+  transform: translateY(0);
+}
+
+/* 8. Chat Time */
+.chat-time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #a0a8b9;
+  margin-top: 20px; /* Separated from action buttons */
+}
+
+/* 9. Responsive Design - **Improved Button Handling** */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2rem;
+  }
+  
+  #chat-container {
+      gap: 20px;
+  }
+
+  .chat-box {
+    padding: 20px;
+  }
+
+  /* Make actions stack vertically on smaller screens */
+  .chat-actions {
+    flex-direction: column; 
+    gap: 10px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    width: 100%; /* Full width buttons */
+    text-align: center;
+  }
+}
+
+@media (max-width: 450px) {
+  .page-title {
+    font-size: 1.75rem;
+  }
+  
+  /* Ensure the grid doesn't squeeze too much on very small phones */
+  #chat-container {
+    grid-template-columns: 1fr;
+  }
+}
