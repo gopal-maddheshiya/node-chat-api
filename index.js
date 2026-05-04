@@ -17,7 +17,8 @@ main().then(() => {
   .catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/whatsapp');
+  const mongoURL = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/whatsapp';
+  await mongoose.connect(mongoURL);
 }
 
 // let chat1 = new Chat({
@@ -38,7 +39,6 @@ app.get("/", (req, res) => {
 //Index Route
 app.get("/chats", async(req,res)=>{
   let chats = await Chat.find();
-  console.log(res);
   res.render("index.ejs", {chats});
 });
 
@@ -93,6 +93,6 @@ app.delete("/chats/:id", async (req, res)=>{
   res.redirect("/chats");
 });
 
-app.listen(8080, () => {
-  console.log("Server is listening on port 8080");
+app.listen(process.env.PORT || 8080, () => {
+  console.log(`Server is listening on port ${process.env.PORT || 8080}`);
 });

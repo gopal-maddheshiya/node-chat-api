@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: mongo3-chat-app
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGO_URL
+        value: mongodb+srv://gopalmaddheshiya138:gopal-AVAPG9663@clustertest.hrwul.mongodb.net/?appName=ClusterTest
+      - key: NODE_ENV
+        value: production
