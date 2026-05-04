@@ -18,7 +18,13 @@ main().then(() => {
 
 async function main() {
   const mongoURL = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/whatsapp';
-  await mongoose.connect(mongoURL);
+  console.log("Connecting to MongoDB...");
+  try {
+    await mongoose.connect(mongoURL);
+    console.log("MongoDB connection successful!");
+  } catch (err) {
+    console.error("MongoDB connection failed:", err);
+  }
 }
 
 // let chat1 = new Chat({
@@ -38,8 +44,13 @@ app.get("/", (req, res) => {
 
 //Index Route
 app.get("/chats", async(req,res)=>{
-  let chats = await Chat.find();
-  res.render("index.ejs", {chats});
+  try {
+    let chats = await Chat.find();
+    res.render("index.ejs", {chats});
+  } catch (err) {
+    console.error("Error fetching chats:", err);
+    res.status(500).send("Error loading chats. Please check database connection.");
+  }
 });
 
 // New Route
